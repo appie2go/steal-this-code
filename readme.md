@@ -14,3 +14,6 @@ By cloning or forking this repository, by copying and using this code you are ag
 
 ## Don't like it? Make it better!
 I've written this code for anyone to use, to get inspiration and to learn new concepts. I learned a lot from other people's code, and this is my way of returning the favour. The day I'm not learning new things any more is the day I quit. That means this code is not perfect. See anything conceptually incorrect? Please let me know. Please refer to literature where these concepts are described. That way I can learn new things. Feel free to make a pull request, too! 
+
+## What's next?
+This project does not contain tests yet. Stay tuned and expect articles with code about how to unit-test, how to component-test and how to acceptance test this software. 
