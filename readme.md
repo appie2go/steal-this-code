@@ -6,6 +6,7 @@ Thise code-base is my interpretation of Command Query Responsibility Segregation
 I've written what I've learned ini the following blogs:
 
 * This blog briefly describes the concepts: [Implementing DDDomain models, ports & adapters and CQRS with C#](https://medium.com/@abstarreveld/implementing-dddomain-models-ports-adapters-and-cqrs-with-c-2b81403f09f7?source=friends_link&sk=5d712709ae5de5454bd84e88d62beb2c)
+* This blog describes the folder structure, project structure, etc, that's been applied in this repo. [DDDomain models, ports & adapters and CQRS reference architecture (C#)](https://medium.com/@abstarreveld/dddomain-models-ports-adapters-and-cqrs-reference-architecture-c-504817df65ec)
 
 ## Feel free to use it. Don't abuse it!
 Feel free to copy the code and use it for your own application. Please share your experiences when you do.
