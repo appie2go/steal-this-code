@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 
-namespace Dispatching.Aaa.Mapping
+namespace Dispatching.Aaa.Mappers
 {
     public class EstimatedTimeOfArrivalResponseMapper : IEstimatedTimeOfArrivalResponseMapper
     {

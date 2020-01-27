@@ -3,7 +3,7 @@ using Dispatching.Rides;
 using System;
 using System.Net.Http;
 
-namespace Dispatching.Aaa.Mapping
+namespace Dispatching.Aaa.Mappers
 {
     public interface IEstimatedTimeOfArrivalRequestMapper
     {

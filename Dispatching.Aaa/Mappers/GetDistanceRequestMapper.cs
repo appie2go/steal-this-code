@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System.Net.Http;
 
-namespace Dispatching.Aaa.Mapping
+namespace Dispatching.Aaa.Mappers
 {
     internal class GetDistanceRequestMapper : IGetDistanceRequestMapper
     {
