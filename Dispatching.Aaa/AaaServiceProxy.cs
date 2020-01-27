@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dispatching.Aaa
 {
-    public class AaaServiceProxy : IProvideTrafficInformation
+    internal class AaaServiceProxy : IProvideTrafficInformation
     {
         private const string etaEndpointAddress = "http://api.aaa.com/api/eta"; // Todo: get this imaginary endpoint-address form config
         private const string distanceEndpointAddress = "http://api.aaa.com/api/distance"; // Todo: get this imaginary endpoint-address form config
