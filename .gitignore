@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/Dispatching
+/Dispatching/bin/Debug/netstandard2.0
+/Dispatching/obj
+/Dispatching.Aaa/bin/Debug/netstandard2.0
+/Dispatching.Aaa/obj
+/Dispatching.Api/bin/Debug/netcoreapp3.1
+/Dispatching.Api/obj
+/Dispatching.Broker/bin/Debug/netstandard2.0
+/Dispatching.Broker/obj
+/Dispatching.Persistence/bin/Debug/netstandard2.0
+/Dispatching.Persistence/obj
+/Dispatching.ReadModel/bin/Debug/netstandard2.0
+/Dispatching.ReadModel/obj

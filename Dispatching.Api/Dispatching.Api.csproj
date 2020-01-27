@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>8c385e4e-f57f-4ecf-8696-dbcb1ae594ed</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\Dispatching.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="8.6.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dispatching.Aaa\Dispatching.Aaa.csproj" />
+    <ProjectReference Include="..\Dispatching.Broker\Dispatching.Broker.csproj" />
+    <ProjectReference Include="..\Dispatching.Persistence\Dispatching.Persistence.csproj" />
+    <ProjectReference Include="..\Dispatching.ReadModel\Dispatching.ReadModel.csproj" />
+    <ProjectReference Include="..\Dispatching\Dispatching.csproj" />
+  </ItemGroup>
+
+
+</Project>
