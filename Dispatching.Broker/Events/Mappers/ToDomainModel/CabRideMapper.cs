@@ -2,7 +2,7 @@
 using Dispatching.Rides;
 using System;
 
-namespace Dispatching.Broker.Events.Mappers.DomainModel
+namespace Dispatching.Broker.Events.Mappers.ToDomainModel
 {
     internal class CabRideMapper : ICabRideMapper
     {

@@ -1,5 +1,5 @@
 ﻿using Dispatching.Broker.Events;
-using Dispatching.Broker.Events.Mappers.ReadModel;
+using Dispatching.Broker.Events.Mappers.ToReadModel;
 using Dispatching.ReadModel;
 using Rebus.Handlers;
 using System.Threading.Tasks;

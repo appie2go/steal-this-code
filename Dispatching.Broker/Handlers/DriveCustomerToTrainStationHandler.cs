@@ -1,6 +1,6 @@
 ﻿using Dispatching.Broker.Commands;
 using Dispatching.Broker.Commands.Mappers;
-using Dispatching.Broker.Events.Mappers.DomainModel;
+using Dispatching.Broker.Events.Mappers.ToDomainModel;
 using Dispatching.Rides;
 using Dispatching.Rides.Processes.PrimaryPorts;
 using Rebus.Handlers;

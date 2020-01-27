@@ -9,8 +9,8 @@ namespace Dispatching.Broker.Configuration
             return serviceCollection
                 .AddTransient<IQueue, RebusQueue>()
                 .AddTransient<Commands.Mappers.IDriveCustomerToTrainStationMapper, Commands.Mappers.DriveCustomerToTrainStationMapper>()
-                .AddTransient<Events.Mappers.DomainModel.ICabRideMapper, Events.Mappers.DomainModel.CabRideMapper>()
-                .AddTransient<Events.Mappers.ReadModel.ICabRideMapper, Events.Mappers.ReadModel.CabRideMapper>();
+                .AddTransient<Events.Mappers.ToDomainModel.ICabRideMapper, Events.Mappers.ToDomainModel.CabRideMapper>()
+                .AddTransient<Events.Mappers.ToReadModel.ICabRideMapper, Events.Mappers.ToReadModel.CabRideMapper>();
         }
 
         // Todo

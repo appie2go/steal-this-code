@@ -1,7 +1,7 @@
 ﻿using Dispatching.ReadModel.PersistenceModel;
 using System;
 
-namespace Dispatching.Broker.Events.Mappers.ReadModel
+namespace Dispatching.Broker.Events.Mappers.ToReadModel
 {
     internal class CabRideMapper : ICabRideMapper
     {
