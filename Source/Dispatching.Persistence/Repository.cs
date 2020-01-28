@@ -16,9 +16,9 @@ namespace Dispatching.Persistence
             IMapToPersistenceModel<TDomainModel, TData> domainModelMapper,
             IMapToDomainModel<TData, TDomainModel> persistenceModelMapper)
         {
-            _context = context;
-            _domainModelMapper = domainModelMapper;
-            _persistenceModelMapper = persistenceModelMapper;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _domainModelMapper = domainModelMapper ?? throw new ArgumentNullException(nameof(domainModelMapper));
+            _persistenceModelMapper = persistenceModelMapper ?? throw new ArgumentNullException(nameof(persistenceModelMapper));
         }
 
         public async Task<TDomainModel> Get(Id<TDomainModel> id)
