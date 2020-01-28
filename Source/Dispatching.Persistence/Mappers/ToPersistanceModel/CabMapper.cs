@@ -7,13 +7,14 @@ namespace Dispatching.Persistence.Mappers.ToPersistanceModel
     {
         public void Apply(Cab domainmodel, PersistenceModel.Cab data)
         {
+            data.Id = domainmodel.Id.ToGuid();
             data.Latitude = domainmodel.CurrentLocation.Latitude;
             data.Longitude = domainmodel.CurrentLocation.Longitude;
         }
 
         public PersistenceModel.Cab CreateNew()
         {
-            return new PersistenceModel.Cab { Id = Guid.NewGuid() };
+            return new PersistenceModel.Cab();
         }
     }
 }
