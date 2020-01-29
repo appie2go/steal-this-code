@@ -21,13 +21,7 @@ namespace Dispatching.Persistence.Tests.ComponentTests
         [TestInitialize]
         public void Initialize()
         {
-            // Arrange
-            var location = _fixture.Create<PersistenceModel.Location>();
-            location.Name = "Utrecht Centraal";
-
             _context = new InMemoryDispatchingDbContext(_fixture.Create<string>());
-            _context.Locations.Add(location);
-            _context.SaveChanges();
 
             // Bootstrap
             var serviceProvider = new ServiceCollection()
@@ -42,6 +36,13 @@ namespace Dispatching.Persistence.Tests.ComponentTests
         [TestMethod]
         public async Task WhenTrainstationExistsInDatabase_ShouldReturnLocation()
         {
+            // Arrange
+            var location = _fixture.Create<PersistenceModel.Location>();
+            location.Name = "Utrecht Centraal";
+
+            _context.Locations.Add(location);
+            _context.SaveChanges();
+
             // Act
             var actual = await _sut.GetTrainStationLocation();
 
