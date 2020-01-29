@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Dispatching.Persistence.Tests.UnitTests.CabRepositoryTests
 {
     [TestClass]
-    public class UpdateTest
+    public class InsertTest
     {
         private readonly Fixture _fixture = new Fixture();
 
@@ -26,15 +26,13 @@ namespace Dispatching.Persistence.Tests.UnitTests.CabRepositoryTests
 
             // Arrange 
             _cab = _fixture.Create<Cab>();
-
             _mappedCab = _fixture.Create<PersistenceModel.Cab>();
-            _mappedCab.Id = _cab.Id.ToGuid();
 
             var persistenceModelMapper = Substitute.For<IMapToDomainModel<PersistenceModel.Cab, Cab>>();
             var domainModelMapper = CreateDomainModelMapper(_mappedCab);
 
             // Act
-            using (var dbContext = CreateDbContext(_mappedCab))
+            using (var dbContext = CreateDbContext())
             {    
                 var sut = new CabRepository(dbContext, domainModelMapper, persistenceModelMapper);
                 await sut.Update(_cab);
@@ -76,13 +74,6 @@ namespace Dispatching.Persistence.Tests.UnitTests.CabRepositoryTests
         private DispatchingDbContext CreateDbContext() 
         {
             return new DispatchingDbContextBuilder(_databaseName).Build();
-        }
-
-        private DispatchingDbContext CreateDbContext(PersistenceModel.Cab cab)
-        {
-            return new DispatchingDbContextBuilder(_databaseName)
-                .WithCab(cab)
-                .Build();
         }
 
         private IMapToPersistenceModel<Cab, PersistenceModel.Cab> CreateDomainModelMapper(PersistenceModel.Cab cab)

@@ -43,11 +43,6 @@ namespace Dispatching.Persistence.Tests.UnitTests.CabRepositoryTests
                 .WithCab(_fixture.Create<Guid>(), _distance + _fixture.Create<decimal>())
                 .Build();
 
-            PersistenceModel.Cab actual = null;
-            _persistenceModelMapper
-                .When(x => x.Map(Arg.Any<PersistenceModel.Cab>()))
-                .Do((callInfo) => actual = callInfo.Args().First() as PersistenceModel.Cab);
-
             // Act
             using (dbContext)
             {
@@ -55,7 +50,34 @@ namespace Dispatching.Persistence.Tests.UnitTests.CabRepositoryTests
                 await sut.GetNearestAvailableCab(_location);
 
                 // Assert
-                actual.Id.Should().Be(_nearestCabId);
+                _persistenceModelMapper
+                    .Received(1)
+                    .Map(Arg.Is<PersistenceModel.Cab>(x => x.Id == _nearestCabId));
+            }
+        }
+
+        [TestMethod]
+        public async Task WhenLocation_ShouldReturnResultFromPersistenceModelMapper()
+        {
+            // Arrange
+            var dbContext = new DispatchingDbContextBuilder()
+                .WithCustomerLocation(_location)
+                .WithCab(_nearestCabId, _distance)
+                .Build();
+
+            var expected = _fixture.Create<Cab>();
+            _persistenceModelMapper
+                .Map(Arg.Any<PersistenceModel.Cab>())
+                .Returns(expected);
+
+            // Act
+            using (dbContext)
+            {
+                var sut = new CabRepository(dbContext, _domainModelMapper, _persistenceModelMapper);
+                var actual = await sut.GetNearestAvailableCab(_location);
+
+                // Assert
+                actual.Should().Be(expected);
             }
         }
 
