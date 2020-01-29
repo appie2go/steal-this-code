@@ -8,6 +8,7 @@ using Dispatching.Rides;
 namespace Dispatching.Broker.Tests.UnitTests.Events.ToDomainModel.CabRideMapperTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class MapSuccessEventTest
     {
         private readonly Fixture _fixture = new Fixture();

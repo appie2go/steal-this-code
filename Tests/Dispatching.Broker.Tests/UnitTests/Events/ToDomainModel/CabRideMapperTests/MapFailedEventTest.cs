@@ -8,6 +8,7 @@ using FluentAssertions;
 namespace Dispatching.Broker.Tests.UnitTests.Events.ToDomainModel.CabRideMapperTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class MapFailedEventTest
     {
         private readonly Fixture _fixture = new Fixture();
