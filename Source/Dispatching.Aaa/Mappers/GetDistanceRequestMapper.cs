@@ -16,7 +16,8 @@ namespace Dispatching.Aaa.Mappers
                 DestinationLongitude = b.Longitude,
             };
 
-            return new StringContent(JsonConvert.SerializeObject(request));
+            var jsonString = JsonConvert.SerializeObject(request);
+            return new StringContent(jsonString, Encoding.UTF8, "application/json");
         }
     }
 }

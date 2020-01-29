@@ -3,6 +3,7 @@ using Dispatching.Rides;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
+using System.Text;
 
 namespace Dispatching.Aaa.Mappers
 {
@@ -16,7 +17,8 @@ namespace Dispatching.Aaa.Mappers
                 Kilometers = (int)distance.ToDecimal()
             };
 
-            return new StringContent(JsonConvert.SerializeObject(request));
+            var jsonString = JsonConvert.SerializeObject(request);
+            return new StringContent(jsonString, Encoding.UTF8, "application/json");
         }
     }
 }
