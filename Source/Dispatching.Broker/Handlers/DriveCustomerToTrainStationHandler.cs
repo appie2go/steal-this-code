@@ -21,10 +21,10 @@ namespace Dispatching.Broker.Handlers
                      IDriveCustomerToTrainStationMapper driveCustomerToTrainStationMapper,
                      ICabRideMapper cabRideMapper)
         {
-            _messageBus = messageBus;
-            _cabRideService = cabRideService;
-            _driveCustomerToTrainStationMapper = driveCustomerToTrainStationMapper;
-            _cabRideMapper = cabRideMapper;
+            _messageBus = messageBus ?? throw new ArgumentNullException(nameof(messageBus));
+            _cabRideService = cabRideService ?? throw new ArgumentNullException(nameof(cabRideService));
+            _driveCustomerToTrainStationMapper = driveCustomerToTrainStationMapper ?? throw new ArgumentNullException(nameof(driveCustomerToTrainStationMapper));
+            _cabRideMapper = cabRideMapper ?? throw new ArgumentNullException(nameof(cabRideMapper));
         }
 
         public async Task Handle(DriveCustomerToTrainStation message)
