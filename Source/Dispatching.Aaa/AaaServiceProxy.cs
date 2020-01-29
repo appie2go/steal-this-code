@@ -23,11 +23,11 @@ namespace Dispatching.Aaa
             IGetDistanceRequestMapper getDistanceRequestMapper,
             IGetDistanceResponseMapper getDistanceResponseMapper)
         {
-            _httpClient = httpClient;
-            _estimatedTimeOfArrivalRequestMapper = estimatedTimeOfArrivalRequestMapper;
-            _estimatedTimeOfArrivalResponseMapper = estimatedTimeOfArrivalResponseMapper;
-            _getDistanceRequestMapper = getDistanceRequestMapper;
-            _getDistanceResponseMapper = getDistanceResponseMapper;
+            _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
+            _estimatedTimeOfArrivalRequestMapper = estimatedTimeOfArrivalRequestMapper ?? throw new ArgumentNullException(nameof(estimatedTimeOfArrivalRequestMapper));
+            _estimatedTimeOfArrivalResponseMapper = estimatedTimeOfArrivalResponseMapper ?? throw new ArgumentNullException(nameof(estimatedTimeOfArrivalResponseMapper));
+            _getDistanceRequestMapper = getDistanceRequestMapper ?? throw new ArgumentNullException(nameof(getDistanceRequestMapper));
+            _getDistanceResponseMapper = getDistanceResponseMapper ?? throw new ArgumentNullException(nameof(getDistanceResponseMapper));
         }
 
         public async Task<Kilometer> GetDistanceBetweenLocations(Location a, Location b)
