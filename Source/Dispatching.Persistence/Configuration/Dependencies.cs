@@ -1,4 +1,5 @@
 ﻿using Dispatching.Persistence.Mappers;
+using Dispatching.Rides.Processes.SecondaryPorts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,6 +12,8 @@ namespace Dispatching.Persistence.Configuration
             return serviceCollection
                 .AddDbContext<DispatchingDbContext>()
                 .AddTransient((s) => CreateDispatchingDbContext(connectionstring))
+                .AddTransient<IProvideCab, CabRepository>()
+                .AddTransient<IProvideLocation, LocationRepository>()
                 .AddTransient<IMapToDomainModel<PersistenceModel.Location, Location>, Mappers.ToDomainModel.LocationMapper>()
                 .AddTransient<IMapToDomainModel<PersistenceModel.Cab, Cabs.Cab>, Mappers.ToDomainModel.CabMapper>()
                 .AddTransient<IMapToPersistenceModel<Cabs.Cab, PersistenceModel.Cab>, Mappers.ToPersistanceModel.CabMapper>();
