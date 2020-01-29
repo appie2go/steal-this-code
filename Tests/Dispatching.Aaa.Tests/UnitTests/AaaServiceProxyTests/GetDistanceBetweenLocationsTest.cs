@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace Dispatching.Aaa.Tests.UnitTests.AaaServiceProxyTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class GetDistanceBetweenLocationsTest
     {
         private readonly Fixture _fixture = new Fixture();

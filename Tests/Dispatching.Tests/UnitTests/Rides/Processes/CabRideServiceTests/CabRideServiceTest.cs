@@ -8,6 +8,7 @@ using FluentAssertions;
 namespace Dispatching.Tests.UnitTests.Rides.Processes.CabRideServiceTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class CabRideServiceTest
     {
         private IProvideLocation _locationProvider;

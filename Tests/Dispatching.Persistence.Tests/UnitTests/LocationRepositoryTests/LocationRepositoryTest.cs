@@ -8,6 +8,7 @@ using System;
 namespace Dispatching.Persistence.Tests.UnitTests.LocationRepositoryTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class LocationRepositoryTest
     {
         private readonly Fixture _fixture = new Fixture();

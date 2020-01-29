@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Dispatching.Tests.UnitTests.Rides.KilometerTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class EqualityTests
     {
         private readonly Fixture _fixture = new Fixture();

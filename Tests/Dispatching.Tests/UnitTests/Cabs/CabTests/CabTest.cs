@@ -8,6 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Dispatching.Tests.UnitTests.Cabs.CabTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class CabTest
     {
         private Fixture _fixture = new Fixture();

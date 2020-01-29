@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 namespace Dispatching.Aaa.Tests.ComponentTests
 {
     [TestClass]
+    [TestCategory("Component/Integration")]
     public class AaaServiceProxyTest
     {
         private readonly Fixture _fixture = new Fixture();

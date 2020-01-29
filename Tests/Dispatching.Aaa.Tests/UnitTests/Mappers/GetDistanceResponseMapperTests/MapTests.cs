@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Dispatching.Aaa.Tests.UnitTests.Mappers.GetDistanceResponseMapperTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class MapTests
     {
         private readonly Fixture _fixture = new Fixture();

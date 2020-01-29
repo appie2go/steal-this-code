@@ -5,6 +5,7 @@ using FluentAssertions;
 namespace Dispatching.Tests.UnitTests.LocationTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class LocationTest
     {
         private readonly Fixture _fixture = new Fixture();

@@ -7,6 +7,7 @@ using System;
 namespace Dispatching.Tests.UnitTests.Framework.Id
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class ToStringTest
     {
         private readonly Fixture _fixture = new Fixture();

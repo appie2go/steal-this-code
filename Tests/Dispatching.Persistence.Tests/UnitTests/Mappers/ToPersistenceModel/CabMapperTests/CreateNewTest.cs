@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Dispatching.Persistence.Tests.UnitTests.Mappers.ToPersistenceModel.CabMapperTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class CreateNewTest
     {
         private readonly Fixture _fixture = new Fixture();

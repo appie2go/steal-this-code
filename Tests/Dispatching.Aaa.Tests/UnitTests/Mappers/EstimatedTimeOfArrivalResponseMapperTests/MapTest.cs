@@ -8,6 +8,7 @@ using System.Net;
 namespace Dispatching.Aaa.Tests.UnitTests.Mappers.EstimatedTimeOfArrivalResponseMapperTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class MapTest
     {
         private readonly Fixture _fixture = new Fixture();

@@ -9,6 +9,7 @@ using System;
 namespace Dispatching.Tests.UnitTests.Rides.RideTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class StopTests
     {
 

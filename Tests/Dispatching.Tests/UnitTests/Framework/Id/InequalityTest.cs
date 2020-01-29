@@ -8,6 +8,7 @@ using System;
 namespace Dispatching.Tests.UnitTests.Framework.Id
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class InequalityTest
     {
         private readonly Fixture _fixture = new Fixture();

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace Dispatching.Persistence.Tests.UnitTests.LocationRepositoryTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class GetTrainStationLocationTest
     {
         private readonly Fixture _fixture = new Fixture();

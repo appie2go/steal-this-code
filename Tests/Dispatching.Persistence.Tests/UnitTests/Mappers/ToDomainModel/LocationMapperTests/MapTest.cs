@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Dispatching.Persistence.Tests.UnitTests.Mappers.ToDomainModel.LocationMapperTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class MapTest
     {
         private readonly Fixture _fixture = new Fixture();

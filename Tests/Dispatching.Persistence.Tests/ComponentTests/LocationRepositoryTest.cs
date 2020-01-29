@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace Dispatching.Persistence.Tests.ComponentTests
 {
     [TestClass]
+    [TestCategory("Component/Integration")]
     public class LocationRepositoryTest
     {
         private readonly Fixture _fixture = new Fixture();

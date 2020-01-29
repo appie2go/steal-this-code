@@ -10,6 +10,7 @@ using System;
 namespace Dispatching.Tests.UnitTests.Rides.RideTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class RideTests
     {
         private readonly Fixture _fixture = new Fixture();

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace Dispatching.Aaa.Tests.UnitTests.Mappers.EstimatedTimeOfArrivalRequestMapperTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class MapTest
     {
         private readonly Fixture _fixture = new Fixture();

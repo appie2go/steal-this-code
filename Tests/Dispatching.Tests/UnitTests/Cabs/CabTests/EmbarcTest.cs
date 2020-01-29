@@ -11,6 +11,7 @@ using System.Linq;
 namespace Dispatching.Tests.UnitTests.Cabs.CabTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class EmbarcTest
     {
         private readonly Fixture _fixture = new Fixture();

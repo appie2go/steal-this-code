@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 namespace Dispatching.Tests.UnitTests.Rides.Processes.CabRideServiceTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class BringCustomerToTheTrainStationTest
     {
         private readonly Fixture _fixture = new Fixture();

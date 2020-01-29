@@ -7,6 +7,7 @@ using System;
 namespace Dispatching.Aaa.Tests.UnitTests.AaaServiceProxyTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class AaaServiceProxyTest
     {
         private IHttpClient _httpClient;

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace Dispatching.Persistence.Tests.UnitTests.CabRepositoryTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class InsertTest
     {
         private readonly Fixture _fixture = new Fixture();

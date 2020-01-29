@@ -8,6 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Dispatching.Tests.UnitTests.Customers.CustomerTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class InequalityTest
     {
         private readonly Fixture _fixture = new Fixture();

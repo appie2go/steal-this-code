@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace Dispatching.Aaa.Tests.UnitTests.AaaServiceProxyTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class GetTimeOfArivalTest
     {
         private readonly Fixture _fixture = new Fixture();

@@ -8,6 +8,7 @@ using System;
 namespace Dispatching.Tests.UnitTests.Cabs.CabTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class GoToTest
     {
         private readonly Fixture _fixture = new Fixture();

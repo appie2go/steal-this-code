@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace Dispatching.Persistence.Tests.UnitTests.CabRepositoryTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class GetNearestAvailableCabTest
     {
         private readonly Fixture _fixture = new Fixture();

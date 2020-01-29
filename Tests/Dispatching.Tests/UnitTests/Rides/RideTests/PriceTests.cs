@@ -7,6 +7,7 @@ using System;
 namespace Dispatching.Tests.UnitTests.Rides.RideTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class PriceTests
     {
         private readonly Fixture _fixture = new Fixture();
