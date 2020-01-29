@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Source\Dispatching.Broker\Dispatching.Broker.csproj" />
+    <ProjectReference Include="..\..\Source\Dispatching\Dispatching.csproj" />
   </ItemGroup>
 
 </Project>

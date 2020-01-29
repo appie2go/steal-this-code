@@ -6,16 +6,31 @@ namespace Dispatching.Broker.Events.Mappers.ToDomainModel
 {
     internal class CabRideMapper : ICabRideMapper
     {
-        public DriveCustomerToTrainStationFailed MapFailedEvent(DriveCustomerToTrainStation command, Exception error)
+        public DriveCustomerToTrainStationFailed MapFailedEvent(DriveCustomerToTrainStation command, Exception exception)
         {
+            if (command == null)
+            {
+                throw new ArgumentNullException(nameof(command));
+            }
+
+            if (exception == null)
+            {
+                throw new ArgumentNullException(nameof(exception));
+            }
+
             return new DriveCustomerToTrainStationFailed
             {
-                Reason = error.ToString()
+                Reason = exception.ToString()
             };
         }
 
         public DroveCustomerToTrainStation MapSuccessEvent(Ride ride)
         {
+            if (ride == null)
+            {
+                throw new ArgumentNullException(nameof(ride));
+            }
+
             return new DroveCustomerToTrainStation
             {
                 CabRideId = ride.Id.ToGuid(),
