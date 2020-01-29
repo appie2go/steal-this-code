@@ -1,6 +1,7 @@
 ﻿using Dispatching.Aaa.DataContract;
 using Newtonsoft.Json;
 using System.Net.Http;
+using System.Text;
 
 namespace Dispatching.Aaa.Mappers
 {

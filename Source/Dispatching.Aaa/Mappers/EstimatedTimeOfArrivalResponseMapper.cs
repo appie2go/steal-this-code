@@ -5,7 +5,7 @@ using System.Net.Http;
 
 namespace Dispatching.Aaa.Mappers
 {
-    public class EstimatedTimeOfArrivalResponseMapper : IEstimatedTimeOfArrivalResponseMapper
+    internal class EstimatedTimeOfArrivalResponseMapper : IEstimatedTimeOfArrivalResponseMapper
     {
         public DateTime Map(HttpResponseMessage responseMessage)
         {

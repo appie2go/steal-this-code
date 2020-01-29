@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Dispatching.Aaa.Mappers
 {
-    public class EstimatedTimeOfArrivalRequestMapper : IEstimatedTimeOfArrivalRequestMapper
+    internal class EstimatedTimeOfArrivalRequestMapper : IEstimatedTimeOfArrivalRequestMapper
     {
         public HttpContent Map(DateTime departureTime, Kilometer distance)
         {
