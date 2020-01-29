@@ -91,7 +91,6 @@ namespace Dispatching.Aaa.Tests.UnitTests.AaaServiceProxyTests
                 .Map(Arg.Is(expected));
         }
 
-
         [TestMethod]
         public async Task WhenResponse_ShouldReturnWhateverResponseMapperReturns()
         {

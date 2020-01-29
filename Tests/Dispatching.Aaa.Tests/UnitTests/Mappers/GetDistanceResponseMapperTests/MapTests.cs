@@ -3,6 +3,7 @@ using Dispatching.Aaa.Mappers;
 using Dispatching.Rides;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace Dispatching.Aaa.Tests.UnitTests.Mappers.GetDistanceResponseMapperTests
 {
@@ -37,6 +38,21 @@ namespace Dispatching.Aaa.Tests.UnitTests.Mappers.GetDistanceResponseMapperTests
             var expected = Kilometer.FromDecimal(_theirResponse.Kilometers);
             actual.Should().Be(expected);
         }
+
+
+        [TestMethod]
+        public void WhenAaaDoesNotReturn200ok_ShouldThrowException()
+        {
+            // Arrange
+            var httpResponseMessage = _theirResponse.ToHttpResponseMessage(System.Net.HttpStatusCode.InternalServerError);
+
+            // Act
+            Action act = () => _mapper.Map(httpResponseMessage);
+
+            // Assert
+            act.Should().Throw<ApplicationException>();
+        }
+
 
         public class TheirSchema
         {
