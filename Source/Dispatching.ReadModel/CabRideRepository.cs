@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using Dispatching.ReadModel.Mappers;
 
 namespace Dispatching.ReadModel
 {
@@ -18,9 +19,9 @@ namespace Dispatching.ReadModel
     {
         private readonly DispatchingReadDbContext _dispatchingReadContext;
 
-        public CabRideRepository(DispatchingReadDbContext dispatchingReadContext) : base(dispatchingReadContext)
+        public CabRideRepository(DispatchingReadDbContext dispatchingReadContext, IApply<CabRide> mapper) : base(dispatchingReadContext, mapper)
         {
-            _dispatchingReadContext = dispatchingReadContext ?? throw new ArgumentNullException(nameof(dispatchingReadContext));
+            _dispatchingReadContext = dispatchingReadContext;
         }
 
         public async Task<IEnumerable<CabRide>> GetAll()
@@ -31,13 +32,6 @@ namespace Dispatching.ReadModel
         protected override async Task Add(CabRide newItem)
         {
             await _dispatchingReadContext.CabRides.AddAsync(newItem);
-        }
-
-        protected override void CopyValues(CabRide currentItem, CabRide updatedItem)
-        {
-            currentItem.Id = updatedItem.Id;
-            currentItem.CustomerId = updatedItem.CustomerId;
-            currentItem.TimeOfArrival = updatedItem.TimeOfArrival;
         }
 
         public override async Task<CabRide> FindById(Guid id)

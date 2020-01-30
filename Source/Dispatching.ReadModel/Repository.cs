@@ -1,4 +1,5 @@
-﻿using Dispatching.ReadModel.PersistenceModel;
+﻿using Dispatching.ReadModel.Mappers;
+using Dispatching.ReadModel.PersistenceModel;
 using System;
 using System.Threading.Tasks;
 
@@ -7,10 +8,12 @@ namespace Dispatching.ReadModel
     internal abstract class Repository<T> where T : Entity, new()
     {
         private readonly DispatchingReadDbContext _dbContext;
+        private readonly IApply<T> _mapper;
 
-        protected Repository(DispatchingReadDbContext dbContext)
+        protected Repository(DispatchingReadDbContext dbContext, IApply<T> mapper)
         {
-            _dbContext = dbContext;
+            _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         public async Task Save(T input)
@@ -27,14 +30,12 @@ namespace Dispatching.ReadModel
                 await Add(item);
             }
 
-            CopyValues(item, input);
+            _mapper.Apply(item, input);
             await _dbContext.SaveChangesAsync();
         }
 
         public abstract Task<T> FindById(Guid id);
 
         protected abstract Task Add(T newItem);
-
-        protected abstract void CopyValues(T currentItem, T updatedItem);
     }
 }

@@ -1,8 +1,10 @@
 ﻿using AutoFixture;
 using Dispatching.Persistence.Tests;
+using Dispatching.ReadModel.Mappers;
 using Dispatching.ReadModel.PersistenceModel;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NSubstitute;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,6 +22,8 @@ namespace Dispatching.ReadModel.Tests.UnitTests.CabRideRepositoryTests
         private CabRideRepository _sut;
         private CabRide _cabRide;
 
+        private IApply<CabRide> _mapper;
+
         [TestInitialize]
         public void Initialize()
         {
@@ -28,8 +32,10 @@ namespace Dispatching.ReadModel.Tests.UnitTests.CabRideRepositoryTests
             _dbContext = new DispatchingReadDbContextBuilder(_databaseName)
                 .Build();
 
-            _sut = new CabRideRepository(_dbContext);
             _cabRide = _fixture.Create<CabRide>();
+            _mapper = Substitute.For<IApply<CabRide>>();
+
+            _sut = new CabRideRepository(_dbContext, _mapper);
         }
 
         [TestMethod]
@@ -44,36 +50,15 @@ namespace Dispatching.ReadModel.Tests.UnitTests.CabRideRepositoryTests
         }
 
         [TestMethod]
-        public async Task WhenNewEntity_SaveCustomerId()
+        public async Task WhenNewEntity_ShouldApplyValues()
         {
             // Act
             await _sut.Save(_cabRide);
 
             // Assert
-            using var dbContext = new InMemoryDispatchingDbContext(_databaseName);
-            dbContext.CabRides.Select(x => x.CustomerId).First().Should().Be(_cabRide.CustomerId);
-        }
-
-        [TestMethod]
-        public async Task WhenNewEntity_SaveId()
-        {
-            // Act
-            await _sut.Save(_cabRide);
-
-            // Assert
-            using var dbContext = new InMemoryDispatchingDbContext(_databaseName);
-            dbContext.CabRides.Select(x => x.Id).First().Should().Be(_cabRide.Id);
-        }
-
-        [TestMethod]
-        public async Task WhenNewEntity_SaveTimeOfArrival()
-        {
-            // Act
-            await _sut.Save(_cabRide);
-
-            // Assert
-            using var dbContext = new InMemoryDispatchingDbContext(_databaseName);
-            dbContext.CabRides.Select(x => x.TimeOfArrival).First().Should().Be(_cabRide.TimeOfArrival);
+            _mapper
+                .Received(1)
+                .Apply(Arg.Any<CabRide>(), Arg.Is(_cabRide));
         }
     }
 }

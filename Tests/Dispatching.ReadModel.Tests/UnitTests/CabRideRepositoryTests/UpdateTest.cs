@@ -1,8 +1,10 @@
 ﻿using AutoFixture;
 using Dispatching.Persistence.Tests;
+using Dispatching.ReadModel.Mappers;
 using Dispatching.ReadModel.PersistenceModel;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NSubstitute;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -38,7 +40,7 @@ namespace Dispatching.ReadModel.Tests.UnitTests.CabRideRepositoryTests
 
             _cabRide.CustomerId = _fixture.Create<Guid>();
             _cabRide.TimeOfArrival = _fixture.Create<DateTime>();
-            _sut = new CabRideRepository(_dbContext);
+            _sut = new CabRideRepository(_dbContext, Substitute.For<IApply<CabRide>>());
         }
 
         [TestMethod]
@@ -50,28 +52,6 @@ namespace Dispatching.ReadModel.Tests.UnitTests.CabRideRepositoryTests
             // Assert
             using var dbContext = new InMemoryDispatchingDbContext(_databaseName);
             dbContext.CabRides.Count().Should().Be(1);
-        }
-
-        [TestMethod]
-        public async Task WhenExistingEntity_SaveCustomerId()
-        {
-            // Act
-            await _sut.Save(_cabRide);
-
-            // Assert
-            using var dbContext = new InMemoryDispatchingDbContext(_databaseName);
-            dbContext.CabRides.Select(x => x.CustomerId).First().Should().Be(_cabRide.CustomerId);
-        }
-
-        [TestMethod]
-        public async Task WhenExistingEntity_SaveTimeOfArrival()
-        {
-            // Act
-            await _sut.Save(_cabRide);
-
-            // Assert
-            using var dbContext = new InMemoryDispatchingDbContext(_databaseName);
-            dbContext.CabRides.Select(x => x.TimeOfArrival).First().Should().Be(_cabRide.TimeOfArrival);
         }
     }
 }

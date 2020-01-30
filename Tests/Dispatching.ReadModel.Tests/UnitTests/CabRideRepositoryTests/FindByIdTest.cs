@@ -1,7 +1,9 @@
 ﻿using AutoFixture;
+using Dispatching.ReadModel.Mappers;
 using Dispatching.ReadModel.PersistenceModel;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NSubstitute;
 using System;
 using System.Threading.Tasks;
 
@@ -26,7 +28,7 @@ namespace Dispatching.ReadModel.Tests.UnitTests.CabRideRepositoryTests
             _dbContext = new DispatchingReadDbContextBuilder(_databaseName)
                 .Build();
 
-            _sut = new CabRideRepository(_dbContext);
+            _sut = new CabRideRepository(_dbContext, Substitute.For<IApply<CabRide>>());
         }
 
         [TestMethod]

@@ -1,9 +1,11 @@
 ﻿using AutoFixture;
+using Dispatching.ReadModel.Mappers;
 using Dispatching.ReadModel.PersistenceModel;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using System.Threading.Tasks;
+using NSubstitute;
 
 namespace Dispatching.ReadModel.Tests.UnitTests.CabRideRepositoryTests
 {
@@ -16,12 +18,13 @@ namespace Dispatching.ReadModel.Tests.UnitTests.CabRideRepositoryTests
         private string _databaseName;
 
         private DispatchingReadDbContext _dbContext;
-        private CabRideRepository _sut;
-
+        private IApply<CabRide> _mapper;
+        
         [TestInitialize]
         public void Initialize()
         {
             _databaseName = _fixture.Create<string>();
+            _mapper = Substitute.For<IApply<CabRide>>();
         }
 
         [TestMethod]
@@ -34,8 +37,8 @@ namespace Dispatching.ReadModel.Tests.UnitTests.CabRideRepositoryTests
                 .Build();
 
             // Act
-            _sut = new CabRideRepository(_dbContext);
-            var actual = await _sut.GetAll();
+            var sut = new CabRideRepository(_dbContext, _mapper);
+            var actual = await sut.GetAll();
 
             // Assert
             actual.Count().Should().Be(_dbContext.CabRides.Count());
@@ -50,8 +53,8 @@ namespace Dispatching.ReadModel.Tests.UnitTests.CabRideRepositoryTests
                 .Build();
 
             // Act
-            _sut = new CabRideRepository(_dbContext);
-            var actual = await _sut.GetAll();
+            var sut = new CabRideRepository(_dbContext, _mapper);
+            var actual = await sut.GetAll();
 
             // Assert
             actual.Should().BeEmpty();
