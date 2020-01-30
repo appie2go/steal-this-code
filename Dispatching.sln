@@ -31,9 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dispatching.Broker.Tests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dispatching.ReadModel.Tests", "Tests\Dispatching.ReadModel.Tests\Dispatching.ReadModel.Tests.csproj", "{40AF1B30-0B49-4E06-BC16-1AC9A0A1741E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dispatching.Persistence.Tests", "Tests\Dispatching.Persistence.Tests\Dispatching.Persistence.Tests.csproj", "{2C8A0C36-73A9-4DB8-B101-8D6F086378CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dispatching.Persistence.Tests", "Tests\Dispatching.Persistence.Tests\Dispatching.Persistence.Tests.csproj", "{2C8A0C36-73A9-4DB8-B101-8D6F086378CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dispatching.TestFixtures", "Tests\Dispatching.TestFixtures\Dispatching.TestFixtures.csproj", "{7126FA96-F85E-4E2E-B23A-34186C0E6B61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dispatching.TestFixtures", "Tests\Dispatching.TestFixtures\Dispatching.TestFixtures.csproj", "{7126FA96-F85E-4E2E-B23A-34186C0E6B61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

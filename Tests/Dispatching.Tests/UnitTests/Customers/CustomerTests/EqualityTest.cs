@@ -58,7 +58,9 @@ namespace Dispatching.Tests.UnitTests.Customers.CustomerTests
             var customer = new Customer(_id);
 
             // Act
+#pragma warning disable CS1718 // Comparison made to same variable
             var actual = customer == customer;
+#pragma warning disable CS1718 // Comparison made to same variable
 
             // Assert
             actual.Should().BeTrue();

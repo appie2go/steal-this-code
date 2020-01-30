@@ -61,7 +61,9 @@ namespace Dispatching.Tests.UnitTests.Cabs.CabTests
             var cab = _fixture.Create<Cab>();
 
             // Act
+#pragma warning disable CS1718 // Comparison made to same variable
             var actual = cab != cab;
+#pragma warning disable CS1718 // Comparison made to same variable
 
             // Assert
             actual.Should().BeFalse();

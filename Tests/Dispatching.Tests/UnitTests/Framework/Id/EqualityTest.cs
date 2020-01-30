@@ -55,7 +55,9 @@ namespace Dispatching.Tests.UnitTests.Framework.Id
             var instance = new Id<TestEntity>(_guid);
 
             // Act
+#pragma warning disable CS1718 // Comparison made to same variable
             var actual = instance == instance;
+#pragma warning disable CS1718 // Comparison made to same variable
 
             // Assert
             actual.Should().BeTrue();

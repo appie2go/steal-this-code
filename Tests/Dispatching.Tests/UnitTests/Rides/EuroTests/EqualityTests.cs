@@ -54,7 +54,9 @@ namespace Dispatching.Tests.UnitTests.Rides.EuroTests
             var instance = Euro.FromDecimal(_amount);
 
             // Act
+#pragma warning disable CS1718 // Comparison made to same variable
             var actual = instance == instance;
+#pragma warning disable CS1718 // Comparison made to same variable
 
             // Assert
             actual.Should().BeTrue();

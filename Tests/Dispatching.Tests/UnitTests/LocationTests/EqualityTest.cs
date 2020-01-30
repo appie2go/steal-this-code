@@ -52,7 +52,9 @@ namespace Dispatching.Tests.UnitTests.LocationTests
             var location = _fixture.Create<Location>();
 
             // Act
+#pragma warning disable CS1718 // Comparison made to same variable
             var actual = location == location;
+#pragma warning disable CS1718 // Comparison made to same variable
 
             // Assert
             actual.Should().BeTrue();

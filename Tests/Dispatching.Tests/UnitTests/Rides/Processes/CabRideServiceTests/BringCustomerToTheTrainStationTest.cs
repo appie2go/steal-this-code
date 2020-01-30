@@ -27,7 +27,6 @@ namespace Dispatching.Tests.UnitTests.Rides.Processes.CabRideServiceTests
         private DateTime _currentTime;
         private Location _trainStationLocation;
         private DateTime _estimatedTimeOfArrival;
-        private Kilometer _distanceToCover;
 
         private IProvideLocation _locationProvider;
         private IProvideCab _cabProvider;
@@ -62,7 +61,7 @@ namespace Dispatching.Tests.UnitTests.Rides.Processes.CabRideServiceTests
 
             _trafficInformationProvider = Substitute.For<IProvideTrafficInformation>();
             _trafficInformationProvider.GetTimeOfArival(Arg.Any<DateTime>(), Arg.Any<Kilometer>()).Returns(_estimatedTimeOfArrival);
-            _trafficInformationProvider.GetDistanceBetweenLocations(Arg.Any<Location>(), Arg.Any<Location>()).Returns(_distanceToCover);
+            _trafficInformationProvider.GetDistanceBetweenLocations(Arg.Any<Location>(), Arg.Any<Location>()).Returns(_fixture.Create<Kilometer>());
 
             // Create subject under test
             _sut = new CabRideService(_locationProvider, _cabProvider, _timeProvider, _trafficInformationProvider);
