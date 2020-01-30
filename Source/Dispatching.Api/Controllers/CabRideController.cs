@@ -15,8 +15,8 @@ namespace Dispatching.Api.Controllers
 
         public CabRideController(ICabRideRepository cabRideRepository, IQueue queue)
         {
-            _cabRideRepository = cabRideRepository;
-            _queue = queue;
+            _cabRideRepository = cabRideRepository ?? throw new ArgumentNullException(nameof(cabRideRepository));
+            _queue = queue ?? throw new ArgumentNullException(nameof(queue));
         }
 
         [HttpGet]
@@ -30,9 +30,14 @@ namespace Dispatching.Api.Controllers
         }
         
         [HttpPost]
-        public void Post([FromBody] Broker.Commands.DriveCustomerToTrainStation command)
+        public async Task Post([FromBody] Broker.Commands.DriveCustomerToTrainStation command)
         {
-            _queue.Enqueue(command);
+            if (command == null)
+            {
+                throw new ArgumentNullException(nameof(command));
+            }
+
+            await _queue.Enqueue(command);
         }
     }
 }
