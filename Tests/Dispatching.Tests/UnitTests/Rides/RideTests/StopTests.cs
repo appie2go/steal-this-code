@@ -46,6 +46,9 @@ namespace Dispatching.Tests.UnitTests.Rides.RideTests
         [TestMethod]
         public void WhenStopsEarlierThanStarted_ShouldThrowApplicationException()
         {
+            // Arrange
+            _ride.Start(_startTime);
+
             // Act
             Action act = () => _ride.Stop(_startTime.AddMinutes(-1));
 
