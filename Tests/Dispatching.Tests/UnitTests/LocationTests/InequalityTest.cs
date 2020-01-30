@@ -1,5 +1,4 @@
 ﻿using AutoFixture;
-using Dispatching.TestFixtures.DomainObjects;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -10,12 +9,6 @@ namespace Dispatching.Tests.UnitTests.LocationTests
     public class InequalityTest
     {
         private readonly Fixture _fixture = new Fixture();
-
-        [TestInitialize]
-        public void Initialize()
-        {
-            _fixture.Customize(new LocationCustomization());
-        }
 
         [TestMethod]
         public void WhenSame_ComparisonShouldBeFalse()

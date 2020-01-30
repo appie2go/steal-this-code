@@ -1,7 +1,6 @@
 ﻿using AutoFixture;
 using Dispatching.Cabs;
 using Dispatching.Framework;
-using Dispatching.TestFixtures.DomainObjects;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -19,8 +18,6 @@ namespace Dispatching.Tests.UnitTests.Cabs.CabTests
         [TestInitialize]
         public void Initialize()
         {
-            _fixture.Customize(new LocationCustomization());
-
             _id = _fixture.Create<Id<Cab>>();
             _location = _fixture.Create<Location>();
         }

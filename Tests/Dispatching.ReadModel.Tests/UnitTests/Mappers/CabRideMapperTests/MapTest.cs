@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Dispatching.ReadModel.Tests.UnitTests.Mappers.CabRideMapperTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class MapTest
     {
         private Fixture _fixture = new Fixture();

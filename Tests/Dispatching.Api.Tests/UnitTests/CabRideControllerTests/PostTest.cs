@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 namespace Dispatching.Api.Tests.UnitTests.CabRideControllerTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class PostTest
     {
         private readonly Fixture _fixture = new Fixture();

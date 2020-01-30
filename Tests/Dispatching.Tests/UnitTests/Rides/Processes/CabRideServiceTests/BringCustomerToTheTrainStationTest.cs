@@ -5,7 +5,6 @@ using Dispatching.Framework;
 using Dispatching.Rides;
 using Dispatching.Rides.Processes;
 using Dispatching.Rides.Processes.SecondaryPorts;
-using Dispatching.TestFixtures.DomainObjects;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
@@ -38,8 +37,6 @@ namespace Dispatching.Tests.UnitTests.Rides.Processes.CabRideServiceTests
         [TestInitialize]
         public void Initialize()
         {
-            _fixture.Customize(new LocationCustomization());
-
             // Create test data
             _customerId = _fixture.Create<Id<Customer>>();
             _customerLocation = _fixture.Create<Location>();

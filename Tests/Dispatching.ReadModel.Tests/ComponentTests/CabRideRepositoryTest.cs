@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace Dispatching.ReadModel.Tests.ComponentTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class CabRideRepositoryTest
     {
         private Fixture _fixture = new Fixture();

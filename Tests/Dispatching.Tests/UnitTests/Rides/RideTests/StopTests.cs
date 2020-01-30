@@ -1,6 +1,5 @@
 ﻿using AutoFixture;
 using Dispatching.Rides;
-using Dispatching.TestFixtures.DomainObjects;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -23,8 +22,6 @@ namespace Dispatching.Tests.UnitTests.Rides.RideTests
         [TestInitialize]
         public void Initialize()
         {
-            _fixture.Customize(new LocationCustomization());
-
             _ride = _fixture.Create<Ride>();
 
             _startTime = _fixture.Create<DateTime>();

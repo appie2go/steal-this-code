@@ -1,7 +1,6 @@
 ﻿using AutoFixture;
 using Dispatching.Customers;
 using Dispatching.Framework;
-using Dispatching.TestFixtures.DomainObjects;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -18,8 +17,6 @@ namespace Dispatching.Tests.UnitTests.Customers.CustomerTests
         [TestInitialize]
         public void Initialize()
         {
-            _fixture.Customize(new LocationCustomization());
-
             _id = _fixture.Create<Id<Customer>>();
         }
 

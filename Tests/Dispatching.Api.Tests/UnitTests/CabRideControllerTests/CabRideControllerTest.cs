@@ -9,6 +9,7 @@ using System;
 namespace Dispatching.Api.Tests.UnitTests.CabRideControllerTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class CabRideControllerTest
     {
         private ICabRideRepository _cabRideRepository;

@@ -2,7 +2,6 @@
 using Dispatching.Cabs;
 using Dispatching.Customers;
 using Dispatching.Framework;
-using Dispatching.TestFixtures.DomainObjects;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -21,7 +20,6 @@ namespace Dispatching.Tests.UnitTests.Cabs.CabTests
         [TestInitialize]
         public void Initialize()
         {
-            _fixture.Customize(new LocationCustomization());
             _cab = _fixture.Create<Cab>();
         }
 
