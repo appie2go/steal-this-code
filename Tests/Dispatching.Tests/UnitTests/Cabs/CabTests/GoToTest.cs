@@ -21,7 +21,7 @@ namespace Dispatching.Tests.UnitTests.Cabs.CabTests
         }
 
         [TestMethod]
-        public void WhenDestinationIsCurrentLocation_ShouldThrowApplicationException()
+        public void WhenDistinationChanges_CurrentLocationShouldChange()
         {
             // Arrange
             var location = _fixture.Create<Location>();
@@ -34,7 +34,7 @@ namespace Dispatching.Tests.UnitTests.Cabs.CabTests
         }
 
         [TestMethod]
-        public void WhenDistinationChanges_CurrentLocationShouldChange()
+        public void WhenDestinationIsCurrentLocation_ShouldThrowApplicationException()
         {
             // Arrange
             var location = _cab.CurrentLocation;
