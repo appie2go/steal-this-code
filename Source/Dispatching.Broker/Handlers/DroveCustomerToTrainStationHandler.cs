@@ -2,6 +2,7 @@
 using Dispatching.Broker.Events.Mappers.ToReadModel;
 using Dispatching.ReadModel;
 using Rebus.Handlers;
+using System;
 using System.Threading.Tasks;
 
 namespace Dispatching.Broker.Handlers
@@ -16,9 +17,9 @@ namespace Dispatching.Broker.Handlers
             ICabRideRepository cabRideRepository,
             ICabRideMapper cabRideMapper)
         {
-            _callback = callback;
-            _cabRideRepository = cabRideRepository;
-            _cabRideMapper = cabRideMapper;
+            _callback = callback ?? throw new ArgumentNullException(nameof(callback));
+            _cabRideRepository = cabRideRepository ?? throw new ArgumentNullException(nameof(cabRideRepository));
+            _cabRideMapper = cabRideMapper ?? throw new ArgumentNullException(nameof(cabRideMapper));
         }
 
         public async Task Handle(DroveCustomerToTrainStation message)
