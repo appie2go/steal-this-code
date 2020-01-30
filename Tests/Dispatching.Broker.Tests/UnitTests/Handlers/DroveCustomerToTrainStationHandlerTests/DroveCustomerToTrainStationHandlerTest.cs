@@ -11,7 +11,6 @@ namespace Dispatching.Broker.Tests.UnitTests.Handlers.DroveCustomerToTrainStatio
     [TestClass]
     public class DroveCustomerToTrainStationHandlerTest
     {
-
         private ICallback _callback;
         private ICabRideRepository _cabRideRepository;
         private ICabRideMapper _cabRideMapper;

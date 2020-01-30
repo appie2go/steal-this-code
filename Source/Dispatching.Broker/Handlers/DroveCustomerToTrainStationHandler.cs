@@ -26,7 +26,7 @@ namespace Dispatching.Broker.Handlers
         {
             await UpdateReadModel(message);
 
-            await _callback.CallBack<DroveCustomerToTrainStation>(message.CabRideId);
+            await _callback.CallBack(message.CabRideId);
         }
 
         private async Task UpdateReadModel(DroveCustomerToTrainStation message) 
