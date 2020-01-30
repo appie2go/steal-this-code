@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Dispatching.ReadModel.Mappers;
+using Dispatching.ReadModel.PersistenceModel;
 
 namespace Dispatching.ReadModel.Configuration
 {
@@ -10,6 +12,7 @@ namespace Dispatching.ReadModel.Configuration
             return serviceCollection
                 .AddDbContext<DispatchingReadDbContext>()
                 .AddTransient((s) => CreateUseDispatchingBrokerContext(connectionstring))
+                .AddTransient<IApply<CabRide>, CabRideMapper>()
                 .AddTransient<ICabRideRepository, CabRideRepository>();
         }
 
