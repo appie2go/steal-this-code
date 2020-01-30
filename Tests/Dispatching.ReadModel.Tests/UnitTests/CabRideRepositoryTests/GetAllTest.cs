@@ -2,14 +2,14 @@
 using Dispatching.ReadModel.PersistenceModel;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Dispatching.ReadModel.Tests.UnitTests.CabRideRepositoryTests
 {
     [TestClass]
     [TestCategory("UnitTests")]
-    public class FindByIdTest
+    public class GetAllTest
     {
         private readonly Fixture _fixture = new Fixture();
 
@@ -22,40 +22,39 @@ namespace Dispatching.ReadModel.Tests.UnitTests.CabRideRepositoryTests
         public void Initialize()
         {
             _databaseName = _fixture.Create<string>();
-            
+        }
+
+        [TestMethod]
+        public async Task WhenCabRidesTableContainsRows_ShouldReturnCabRides()
+        {
+            // Arrange
+            _dbContext = new DispatchingReadDbContextBuilder(_databaseName)
+                .WithCabRide(_fixture.Create<CabRide>())
+                .WithCabRide(_fixture.Create<CabRide>())
+                .Build();
+
+            // Act
+            _sut = new CabRideRepository(_dbContext);
+            var actual = await _sut.GetAll();
+
+            // Assert
+            actual.Count().Should().Be(_dbContext.CabRides.Count());
+        }
+
+
+        [TestMethod]
+        public async Task WhenCabRideTableDoesNotContainRows_ShouldNotReturnCabRides()
+        {
+            // Arrange
             _dbContext = new DispatchingReadDbContextBuilder(_databaseName)
                 .Build();
 
+            // Act
             _sut = new CabRideRepository(_dbContext);
-        }
-
-        [TestMethod]
-        public async Task WhenItemExists_ShouldReturnItem()
-        {
-            // Arrange
-            var cabRide = _fixture.Create<CabRide>();
-            using var dbContext = new DispatchingReadDbContextBuilder(_databaseName)
-                .WithCabRide(cabRide)
-                .Build();
-
-            // Act
-            var actual = await _sut.FindById(cabRide.Id);
+            var actual = await _sut.GetAll();
 
             // Assert
-            actual.Id.Should().Be(cabRide.Id);
-        }
-
-        [TestMethod]
-        public async Task WhenItemDoesNotExist_ShouldThrowKeyNotFoundException()
-        {
-            // Arrange
-            var cabId = _fixture.Create<Guid>();
-
-            // Act
-            var actual = await _sut.FindById(cabId);
-
-            // Assert
-            actual.Should().BeNull();
+            actual.Should().BeEmpty();
         }
     }
 }

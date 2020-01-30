@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace Dispatching.ReadModel.Tests.UnitTests.CabRideRepositoryTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class InsertTest
     {
         private readonly Fixture _fixture = new Fixture();

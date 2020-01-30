@@ -5,6 +5,7 @@ using System;
 namespace Dispatching.ReadModel.Tests.UnitTests.CabRideRepositoryTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class CabRideRepositoryTest
     {
         [TestMethod]
