@@ -20,7 +20,7 @@ namespace Dispatching.ReadModel
 
         public CabRideRepository(DispatchingReadDbContext dispatchingReadContext) : base(dispatchingReadContext)
         {
-            _dispatchingReadContext = dispatchingReadContext;
+            _dispatchingReadContext = dispatchingReadContext ?? throw new ArgumentNullException(nameof(dispatchingReadContext));
         }
 
         public async Task<IEnumerable<CabRide>> GetAll()
