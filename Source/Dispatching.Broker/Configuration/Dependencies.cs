@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Dispatching.Broker.Handlers;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Dispatching.Broker.Configuration
 {
@@ -8,6 +9,8 @@ namespace Dispatching.Broker.Configuration
         {
             return serviceCollection
                 .AddTransient<IQueue, RebusQueue>()
+                .AddTransient<DriveCustomerToTrainStationHandler>()
+                .AddTransient<DroveCustomerToTrainStationHandler>()
                 .AddTransient<Commands.Mappers.IDriveCustomerToTrainStationMapper, Commands.Mappers.DriveCustomerToTrainStationMapper>()
                 .AddTransient<Events.Mappers.ToDomainModel.ICabRideMapper, Events.Mappers.ToDomainModel.CabRideMapper>()
                 .AddTransient<Events.Mappers.ToReadModel.ICabRideMapper, Events.Mappers.ToReadModel.CabRideMapper>();
