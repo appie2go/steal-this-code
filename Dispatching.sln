@@ -19,8 +19,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dispatching.Aaa", "Source\D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F996ECD5-7588-4FF8-A701-1E6B5B4B8065}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Specs", "Specs", "{935F3C77-0F2D-4CB7-A9E1-834034EAFDFC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dispatching.Tests", "Tests\Dispatching.Tests\Dispatching.Tests.csproj", "{4A0841A3-05B8-486F-85CF-85C9AABBC6AA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dispatching.Aaa.Tests", "Tests\Dispatching.Aaa.Tests\Dispatching.Aaa.Tests.csproj", "{47C85786-247C-4507-896B-7C4C48C261B1}"
