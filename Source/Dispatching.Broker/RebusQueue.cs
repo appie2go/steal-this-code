@@ -1,4 +1,5 @@
 ﻿using Rebus.Bus;
+using System;
 using System.Threading.Tasks;
 
 namespace Dispatching.Broker
@@ -9,7 +10,7 @@ namespace Dispatching.Broker
 
         public RebusQueue(IBus bus)
         {
-            _bus = bus;
+            _bus = bus ?? throw new ArgumentNullException(nameof(bus));
         }
 
         public async Task Enqueue<T>(T payload)
