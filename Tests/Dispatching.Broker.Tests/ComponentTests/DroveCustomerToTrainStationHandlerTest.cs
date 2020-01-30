@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 namespace Dispatching.Broker.Tests.ComponentTests
 {
     [TestClass]
+    [TestCategory("Component/Integration")]
     public class DroveCustomerToTrainStationHandlerTest
     {
         private Fixture _fixture = new Fixture();

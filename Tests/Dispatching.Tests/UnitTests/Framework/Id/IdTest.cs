@@ -8,6 +8,7 @@ using System.Text;
 namespace Dispatching.Tests.UnitTests.Framework.Id
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class IdTest
     {
         [TestMethod]

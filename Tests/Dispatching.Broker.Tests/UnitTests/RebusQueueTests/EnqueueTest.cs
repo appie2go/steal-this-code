@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Dispatching.Broker.Tests.UnitTests.RebusQueueTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class EnqueueTest
     {
         private readonly Fixture _fixture = new Fixture();

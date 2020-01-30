@@ -6,6 +6,7 @@ using System;
 namespace Dispatching.Broker.Tests.UnitTests.RebusQueueTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class RebusQueueTest
     {
         [TestMethod]

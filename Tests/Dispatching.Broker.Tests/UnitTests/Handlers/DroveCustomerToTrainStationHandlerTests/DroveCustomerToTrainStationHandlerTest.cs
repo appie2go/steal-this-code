@@ -9,6 +9,7 @@ using System;
 namespace Dispatching.Broker.Tests.UnitTests.Handlers.DroveCustomerToTrainStationHandlerTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class DroveCustomerToTrainStationHandlerTest
     {
         private ICallback _callback;

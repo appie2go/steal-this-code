@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace Dispatching.Broker.Tests.UnitTests.Handlers.DroveCustomerToTrainStationHandlerTests
 {
     [TestClass]
+    [TestCategory("UnitTests")]
     public class HandleTest
     {
         private readonly Fixture _fixture = new Fixture();
