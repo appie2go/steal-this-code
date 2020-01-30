@@ -23,6 +23,7 @@ namespace Dispatching.ReadModel.Tests
 
         public DispatchingReadDbContext Build()
         {
+            _dbContext.SaveChanges();
             return _dbContext;
         }
     }
