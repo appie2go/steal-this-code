@@ -31,6 +31,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dispatching.ReadModel.Tests
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dispatching.Persistence.Tests", "Tests\Dispatching.Persistence.Tests\Dispatching.Persistence.Tests.csproj", "{2C8A0C36-73A9-4DB8-B101-8D6F086378CE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AcceptanceTests", "AcceptanceTests", "{899037D4-E214-44F4-BE59-44AEB0D05AD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dispatching.Specifications", "AcceptanceTests\Dispatching.Specifications\Dispatching.Specifications.csproj", "{53B5BE5F-7E10-4CF5-885F-FB8F9FF5486F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +89,10 @@ Global
 		{2C8A0C36-73A9-4DB8-B101-8D6F086378CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C8A0C36-73A9-4DB8-B101-8D6F086378CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C8A0C36-73A9-4DB8-B101-8D6F086378CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53B5BE5F-7E10-4CF5-885F-FB8F9FF5486F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53B5BE5F-7E10-4CF5-885F-FB8F9FF5486F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53B5BE5F-7E10-4CF5-885F-FB8F9FF5486F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53B5BE5F-7E10-4CF5-885F-FB8F9FF5486F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +110,7 @@ Global
 		{09E7D85B-C45B-47BD-9FB1-47DF16ED0CD6} = {F996ECD5-7588-4FF8-A701-1E6B5B4B8065}
 		{40AF1B30-0B49-4E06-BC16-1AC9A0A1741E} = {F996ECD5-7588-4FF8-A701-1E6B5B4B8065}
 		{2C8A0C36-73A9-4DB8-B101-8D6F086378CE} = {F996ECD5-7588-4FF8-A701-1E6B5B4B8065}
+		{53B5BE5F-7E10-4CF5-885F-FB8F9FF5486F} = {899037D4-E214-44F4-BE59-44AEB0D05AD9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9BDE33DA-77E4-4BE0-89DF-1BC259361D29}

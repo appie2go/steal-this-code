@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+
+    <SignAssembly>true</SignAssembly>
+
+    <AssemblyOriginatorKeyFile>..\..\Dispatching.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoFixture" Version="4.11.0" />
+    <PackageReference Include="FluentAssertions" Version="5.10.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.0.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.0.0" />
+    <PackageReference Include="coverlet.collector" Version="1.0.1" />
+    <PackageReference Include="NSubstitute" Version="4.2.1" />
+    <PackageReference Include="SpecFlow" Version="3.1.80" />
+    <PackageReference Include="SpecFlow.MsTest" Version="3.1.80" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\Dispatching.Aaa\Dispatching.Aaa.csproj" />
+    <ProjectReference Include="..\..\Source\Dispatching.Api\Dispatching.Api.csproj" />
+    <ProjectReference Include="..\..\Source\Dispatching.Broker\Dispatching.Broker.csproj" />
+    <ProjectReference Include="..\..\Source\Dispatching.Persistence\Dispatching.Persistence.csproj" />
+    <ProjectReference Include="..\..\Source\Dispatching.ReadModel\Dispatching.ReadModel.csproj" />
+    <ProjectReference Include="..\..\Source\Dispatching\Dispatching.csproj" />
+  </ItemGroup>
+
+</Project>
