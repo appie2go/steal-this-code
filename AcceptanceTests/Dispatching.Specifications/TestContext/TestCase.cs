@@ -10,14 +10,12 @@ namespace Dispatching.Specifications.TestContext
     {
         public void Apply(ScenarioContext context)
         {
-            var dbContextFactory = new InMemoryDbContexFactory(context);
-
-            using (var dbContext = dbContextFactory.CreateWriteContext())
+            using (var dbContext = context.CreateWriteDbContext())
             {
                 Apply(dbContext);
             }
 
-            using (var readContext = dbContextFactory.CreateReadContext())
+            using (var readContext = context.CreateReadDbContext())
             {
                 Apply(readContext);
             }

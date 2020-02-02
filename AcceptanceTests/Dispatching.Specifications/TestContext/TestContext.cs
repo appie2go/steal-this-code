@@ -57,11 +57,9 @@ namespace Dispatching.Specifications.TestContext
 
         public IServiceProvider Create()
         {
-            var dbContextFactory = new InMemoryDbContexFactory(_context);
-
             return _serviceCollection
-                .AddTransient((s) => dbContextFactory.CreateReadContext())
-                .AddTransient((s) => dbContextFactory.CreateWriteContext())
+                .AddTransient((s) => _context.CreateReadDbContext())
+                .AddTransient((s) => _context.CreateWriteDbContext())
                 .BuildServiceProvider();
         }
     }
