@@ -18,11 +18,11 @@ namespace Dispatching.Specifications.TestContext
         private readonly IServiceCollection _serviceCollection;
 
         private readonly ScenarioContext _context;
-        private object writeModelConnectionString;
 
         public TestContext(IServiceCollection serviceCollection, ScenarioContext context)
         {
-            context[InMemoryDbContexFactory.ScenarioKey] = _fixture.Create<string>();
+            context.Initialize();
+
             _serviceCollection = serviceCollection;
             _context = context;
 
