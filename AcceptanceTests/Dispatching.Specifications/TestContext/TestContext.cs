@@ -42,14 +42,20 @@ namespace Dispatching.Specifications.TestContext
             return this;
         }
 
-        public TestContext WithTestCase<T>() where T : TestCase, new()
+        public TestContext With<T>() where T : TestCase, new()
         {
             var testCase = new T();
             testCase.Apply(_context);
             return this;
         }
 
-        public TestContext WithTestCase<T>(TestCase<T> testCase) where T : class
+        public TestContext With(TestCase testCase)
+        {
+            testCase.Apply(_context);
+            return this;
+        }
+
+        public TestContext With<T>(TestCase<T> testCase) where T : class
         {
             testCase.Apply(_serviceCollection);
             return this;
