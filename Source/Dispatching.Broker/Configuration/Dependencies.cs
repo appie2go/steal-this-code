@@ -15,11 +15,5 @@ namespace Dispatching.Broker.Configuration
                 .AddTransient<Events.Mappers.ToDomainModel.ICabRideMapper, Events.Mappers.ToDomainModel.CabRideMapper>()
                 .AddTransient<Events.Mappers.ToReadModel.ICabRideMapper, Events.Mappers.ToReadModel.CabRideMapper>();
         }
-
-        // Todo
-        //public static IApplicationBuilder UseBroker(this IApplicationBuilder applicationBuilder)
-        //{
-        //    app.ApplicationServices.UseRebus();
-        //}
     }
 }
