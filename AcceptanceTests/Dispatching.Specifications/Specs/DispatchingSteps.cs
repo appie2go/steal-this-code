@@ -74,6 +74,7 @@ namespace Dispatching.Specifications.Specs
             var controller = (CabRideController)_serviceProvider.GetService(typeof(CabRideController));
             await controller.Post(_command);
 
+            // Allow async stuff to complete
             await Task.Delay(200);
         }
 
