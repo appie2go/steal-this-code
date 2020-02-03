@@ -32,7 +32,6 @@ namespace Dispatching.Specifications.TestContext
                 .UseAaaTrafficInformation()
                 .UseDispatchingPersistenceAdapters(_fixture.Create<string>())
                 .UseDispatchingReadModel(_fixture.Create<string>())
-                .ConfigureRebusTestSetup()
                 .AddControllers();
 
             With(new Clock());
@@ -69,13 +68,11 @@ namespace Dispatching.Specifications.TestContext
             return this;
         }
 
-        public IServiceProvider Create()
+        public IServiceCollection Create()
         {
             return _serviceCollection
                 .AddTransient((s) => _context.CreateReadDbContext())
-                .AddTransient((s) => _context.CreateWriteDbContext())
-                .BuildServiceProvider()
-                .UseRebusTestSetup();
+                .AddTransient((s) => _context.CreateWriteDbContext());
         }
     }
 }
