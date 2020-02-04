@@ -93,15 +93,15 @@ namespace Dispatching.Specifications.Specs
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Available cab drives customer to the trainstation")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Cab drives customer to the trainstation")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Rides")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("e2e")]
-        public virtual void AvailableCabDrivesCustomerToTheTrainstation()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("EndToEnd")]
+        public virtual void CabDrivesCustomerToTheTrainstation()
         {
             string[] tagsOfScenario = new string[] {
-                    "e2e"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Available cab drives customer to the trainstation", null, new string[] {
-                        "e2e"});
+                    "EndToEnd"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cab drives customer to the trainstation", null, new string[] {
+                        "EndToEnd"});
 #line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -126,13 +126,13 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("a cab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
-   testRunner.And("a customer who wants to go to Utrecht Centraal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+   testRunner.And("traffic information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
    testRunner.And("a train station called \"Utrecht Centraal\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
-   testRunner.And("traffic information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+   testRunner.And("a customer who wants to go to Utrecht Centraal", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
   testRunner.When("the customer has been driven to the trainstation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

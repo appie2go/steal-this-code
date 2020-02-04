@@ -7,7 +7,8 @@ using Dispatching.Specifications.TestContext;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 using System;
-using Dispatching.Broker;
+using System.Linq;
+using FluentAssertions;
 
 namespace Dispatching.Specifications.Specs
 {
@@ -17,6 +18,7 @@ namespace Dispatching.Specifications.Specs
     {
         private readonly Fixture _fixture = new Fixture();
         private readonly ContextBuilder _contextBuilder;
+        private Context _context;
 
         private DriveCustomerToTrainStation _command;
 
@@ -83,21 +85,28 @@ namespace Dispatching.Specifications.Specs
         [When("the customer has been driven to the trainstation")]
         public async Task Drive()
         {
-            await _contextBuilder
-                .Build()
-                .Invoke<CabRideController>((x) => x.Post(_command));
+            _context = _contextBuilder.Build();
+            await _context.Invoke<CabRideController>((x) => x.Post(_command));
         }
 
         [Then("the cab it's new location is the trainstation")]
         public void AssertCabsLocationHasBeenUpdated()
         {
-
+            using (var dbContext = _context.GetWriteDbContext())
+            {
+                var cab = dbContext.Cabs.Single();
+                cab.Latitude.Should().Be(_trainstationLocation.Latitude);
+                cab.Longitude.Should().Be(_trainstationLocation.Longitude);
+            }
         }
 
         [Then("the ride has been registered")]
         public void AssertRideAvailable()
         {
-
+            using (var dbContext = _context.GetReadDbContext())
+            {
+                dbContext.CabRides.Count().Should().Be(1);
+            }
         }
     }
 }

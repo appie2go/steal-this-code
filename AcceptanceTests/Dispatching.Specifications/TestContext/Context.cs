@@ -1,4 +1,6 @@
 ﻿using Dispatching.Broker;
+using Dispatching.Persistence;
+using Dispatching.ReadModel;
 using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using Rebus.ServiceProvider;
@@ -10,9 +12,9 @@ namespace Dispatching.Specifications.TestContext
 {
     internal class Context
     {
-        private const int Timeout = 2500;
+        private const int Timeout = 25000;
 
-        private readonly AutoResetEvent _testCompletedEvent = new AutoResetEvent(true);
+        private readonly AutoResetEvent _testCompletedEvent = new AutoResetEvent(false);
 
         private IServiceProvider _serviceProvider;
         private ICallback _callback;
@@ -39,17 +41,19 @@ namespace Dispatching.Specifications.TestContext
             _testCompletedEvent.WaitOne();
         }
 
+        public DispatchingDbContext GetWriteDbContext()
+        {
+            return _serviceProvider.GetService<DispatchingDbContext>();
+        }
+
+        public DispatchingReadDbContext GetReadDbContext()
+        {
+            return _serviceProvider.GetService<DispatchingReadDbContext>();
+        }
+
         public async Task Invoke<T>(Func<T, Task> action)
         {
             var sut = _serviceProvider.GetService<T>();
-
-            var errored = false;
-            var timer = new System.Timers.Timer();
-            timer.Interval = Timeout;
-            timer.Elapsed += (x, y) => Complete();
-
-            timer.Start();
-            
             await action(sut);
             WaitUntilCompleted();
         }

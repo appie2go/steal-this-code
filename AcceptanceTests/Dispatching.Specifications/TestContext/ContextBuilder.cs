@@ -77,8 +77,8 @@ namespace Dispatching.Specifications.TestContext
         public Context Build()
         {
             var serviceCollection = _serviceCollection
-                .AddTransient((s) => _context.CreateReadDbContext())
-                .AddTransient((s) => _context.CreateWriteDbContext());
+                .AddSingleton((s) => _context.CreateReadDbContext())
+                .AddSingleton((s) => _context.CreateWriteDbContext());
 
             return new Context(serviceCollection);
         }

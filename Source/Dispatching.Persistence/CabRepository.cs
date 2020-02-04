@@ -49,7 +49,6 @@ namespace Dispatching.Persistence
         {
             return await _context.Cabs
                 .Where(x => x.Id == id)
-                .AsNoTracking()
                 .FirstOrDefaultAsync();
         }
 
