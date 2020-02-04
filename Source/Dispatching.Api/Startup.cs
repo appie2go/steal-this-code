@@ -57,6 +57,8 @@ namespace Dispatching.Api
             {
                 endpoints.MapControllers();
             });
+
+            app.UseDispatchingBroker();
         }
     }
 }

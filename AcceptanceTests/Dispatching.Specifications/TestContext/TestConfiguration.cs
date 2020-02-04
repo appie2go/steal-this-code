@@ -8,12 +8,8 @@ using Rebus.Transport.InMem;
 
 namespace Dispatching.Specifications.TestContext
 {
-    public class TestMessageBroker : MessageBroker
+    public class TestConfiguration : ReBusConfiguration
     {
-        public TestMessageBroker(IServiceCollection serviceCollection) : base(serviceCollection)
-        {
-        }
-
         protected override void ConfigureTransport(StandardConfigurer<ITransport> configurer, string queueName)
         {
             configurer.UseInMemoryTransport(new InMemNetwork(), queueName);

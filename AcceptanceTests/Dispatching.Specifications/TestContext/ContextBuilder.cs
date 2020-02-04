@@ -8,7 +8,6 @@ using Dispatching.ReadModel.Configuration;
 using Dispatching.Specifications.TestCases;
 using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
-using System;
 using TechTalk.SpecFlow;
 
 namespace Dispatching.Specifications.TestContext
@@ -21,14 +20,14 @@ namespace Dispatching.Specifications.TestContext
         private readonly ScenarioContext _context;
 
         public ContextBuilder(ScenarioContext context)
-        {            
+        {
             _context = context;
             _context.Initialize();
 
             _serviceCollection
                 .UseDispatching()
                 .UseDispatchingRestApi()
-                .UseDispatchingBroker()
+                .UseDispatchingBroker<TestConfiguration>() // Override default configuration
                 .UseAaaTrafficInformation()
                 .UseDispatchingPersistenceAdapters(_fixture.Create<string>())
                 .UseDispatchingReadModel(_fixture.Create<string>())

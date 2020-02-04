@@ -4,19 +4,19 @@ using Dispatching.Broker.Commands;
 using Dispatching.Specifications.TestCases;
 using Dispatching.Specifications.TestContext;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 using TechTalk.SpecFlow;
+using Rebus.ServiceProvider;
 
 namespace Dispatching.Specifications.Specs
 {
     [Binding]
-    [Scope(Feature= "Rides")]
+    [Scope(Feature = "Rides")]
     public class DispatchingSteps
     {
         private readonly ContextBuilder _contextBuilder;
 
         private DriveCustomerToTrainStation _command;
-
-        private TestMessageBroker _application;
 
         internal DispatchingSteps(ContextBuilder contextBuilder)
         {
@@ -47,25 +47,28 @@ namespace Dispatching.Specifications.Specs
         [When("the customer has been driven to the trainstation")]
         public async Task Drive()
         {
-            using (_application = new TestMessageBroker(_contextBuilder.Create()))
-            {
-                var controller = _application.GetService<CabRideController>();
-                await controller.Post(_command);
+            var serviceCollection = _contextBuilder.Create();
 
-                await Task.Delay(100); // Allow commands to be processed
-            }
+            var serviceProvider = serviceCollection.BuildServiceProvider();
+            serviceProvider.UseRebus();
+
+            var controller = serviceProvider.GetService<CabRideController>();
+            await controller.Post(_command);
+
+            await Task.Delay(100); // Allow commands to be processed
+
         }
 
         [Then("the cab it's new location is the trainstation")]
         public void AssertCabsLocationHasBeenUpdated()
-        { 
-        
+        {
+
         }
 
         [Then("the ride has been registered")]
         public void AssertRideAvailable()
-        { 
-        
+        {
+
         }
     }
 }
