@@ -2,6 +2,7 @@
 using Dispatching.ReadModel;
 using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
+using System.Collections.Generic;
 using TechTalk.SpecFlow;
 
 namespace Dispatching.Specifications.TestContext
@@ -27,10 +28,25 @@ namespace Dispatching.Specifications.TestContext
 
     internal abstract class TestCase<T> where T : class
     {
+        private readonly List<TestCase<T>> _otherTestCases = new List<TestCase<T>>();
+
+        public TestCase<T> AppendWith(TestCase<T> appendWith)
+        {
+            _otherTestCases.Add(appendWith);
+            return this;
+        }
+
         public void Apply(IServiceCollection serviceCollection)
         {
             var substitute = Substitute.For<T>();
+            serviceCollection.AddTransient((s) => substitute);
+
             Apply(substitute);
+            foreach (var testcase in _otherTestCases)
+            {
+                testcase.Apply(substitute);
+            }
+
             serviceCollection.AddTransient((s) => substitute);
         }
 

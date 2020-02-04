@@ -3,13 +3,13 @@ using Dispatching.ReadModel;
 using Dispatching.Specifications.TestContext;
 using System;
 
-namespace Dispatching.Specifications.TestCases
+namespace Dispatching.Specifications.TestCases.Database
 {
-    internal class AnyRandomCustomer : TestCase
+    internal class AnyRandomRide : TestCase
     {
         private Guid _id;
 
-        public AnyRandomCustomer WithId(Guid id)
+        public AnyRandomRide WithId(Guid id)
         {
             _id = id;
             return this;
