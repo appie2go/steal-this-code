@@ -5,9 +5,9 @@ using Dispatching.Specifications.TestCases.Aaa;
 using Dispatching.Specifications.TestCases.Database;
 using Dispatching.Specifications.TestContext;
 using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
 using TechTalk.SpecFlow;
-using Rebus.ServiceProvider;
+using System;
+using Dispatching.Broker;
 
 namespace Dispatching.Specifications.Specs
 {
@@ -24,6 +24,8 @@ namespace Dispatching.Specifications.Specs
         private Location _trainstationLocation;
         private Location _cabLocation;
 
+        private DateTime _currentTime;
+
         internal DispatchingSteps(ContextBuilder contextBuilder)
         {
             _contextBuilder = contextBuilder;
@@ -32,9 +34,18 @@ namespace Dispatching.Specifications.Specs
         [BeforeScenario]
         public void Initialize()
         {
+            // Set the current time
+            _currentTime = _fixture.Create<DateTime>();
+            _contextBuilder.SetTime(_currentTime);
+
+            // Populate the database
             _customerLocation = _fixture.Create<Location>();
             _trainstationLocation = _fixture.Create<Location>();
             _cabLocation = _fixture.Create<Location>();
+
+            _contextBuilder.With(new Distance(_customerLocation, _cabLocation));
+            _contextBuilder.With(new Distance(_customerLocation, _trainstationLocation));
+            _contextBuilder.With(new Distance(_trainstationLocation, _cabLocation));
         }
 
         [Given("a cab")]
@@ -60,7 +71,10 @@ namespace Dispatching.Specifications.Specs
         [Given("traffic information")]
         public void CreateTrafficInfromation()
         {
+            var eta = _currentTime.AddMinutes(_fixture.Create<int>());
+
             var testCase = new EstimatedTimeOfArrival()
+                .WithEstimatedTimeOrArrival(eta)
                 .AppendWith(new EstimatedDistance());
 
             _contextBuilder.With(testCase);
@@ -69,20 +83,9 @@ namespace Dispatching.Specifications.Specs
         [When("the customer has been driven to the trainstation")]
         public async Task Drive()
         {
-            _contextBuilder.With(new Distance(_customerLocation, _cabLocation));
-            _contextBuilder.With(new Distance(_customerLocation, _trainstationLocation));
-            _contextBuilder.With(new Distance(_trainstationLocation, _cabLocation));
-
-            var serviceCollection = _contextBuilder.Create();
-
-            var serviceProvider = serviceCollection.BuildServiceProvider();
-            serviceProvider.UseRebus();
-
-            var controller = serviceProvider.GetService<CabRideController>();
-            await controller.Post(_command);
-
-            await Task.Delay(5000); // Allow commands to be processed
-
+            await _contextBuilder
+                .Build()
+                .Invoke<CabRideController>((x) => x.Post(_command));
         }
 
         [Then("the cab it's new location is the trainstation")]

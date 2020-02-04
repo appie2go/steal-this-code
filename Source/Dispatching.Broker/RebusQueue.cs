@@ -15,9 +15,7 @@ namespace Dispatching.Broker
 
         public async Task Enqueue<T>(T payload)
         {
-            await _bus.Publish(payload);
             await _bus.Send(payload);
-            await _bus.SendLocal(payload);
         }
     }
 }

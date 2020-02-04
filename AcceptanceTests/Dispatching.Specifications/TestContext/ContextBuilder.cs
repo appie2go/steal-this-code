@@ -8,6 +8,7 @@ using Dispatching.ReadModel.Configuration;
 using Dispatching.Specifications.TestCases;
 using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
+using System;
 using TechTalk.SpecFlow;
 
 namespace Dispatching.Specifications.TestContext
@@ -34,6 +35,12 @@ namespace Dispatching.Specifications.TestContext
                 .AddControllers();
 
             With(new Clock());
+        }
+
+        public ContextBuilder SetTime(DateTime time)
+        {
+            With(new Clock().WithTime(time));
+            return this;
         }
 
         public ContextBuilder Without<T>() where T : class
@@ -67,11 +74,13 @@ namespace Dispatching.Specifications.TestContext
             return this;
         }
 
-        public IServiceCollection Create()
+        public Context Build()
         {
-            return _serviceCollection
+            var serviceCollection = _serviceCollection
                 .AddTransient((s) => _context.CreateReadDbContext())
                 .AddTransient((s) => _context.CreateWriteDbContext());
+
+            return new Context(serviceCollection);
         }
     }
 }

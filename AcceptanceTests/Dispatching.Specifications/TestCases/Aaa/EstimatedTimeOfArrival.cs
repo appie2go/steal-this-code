@@ -12,11 +12,19 @@ namespace Dispatching.Specifications.TestCases.Aaa
     {
         private readonly Fixture _fixture = new Fixture();
 
+        private DateTime _estimatedTimeOfArrival;
         private HttpStatusCode _statusCode;
 
         public EstimatedTimeOfArrival()
         {
+            _estimatedTimeOfArrival = _fixture.Create<DateTime>();
             _statusCode = HttpStatusCode.OK;
+        }
+
+        public EstimatedTimeOfArrival WithEstimatedTimeOrArrival(DateTime timeOfArrival)
+        {
+            _estimatedTimeOfArrival = timeOfArrival;
+            return this;
         }
 
         protected override void Apply(IHttpClient substitute)
@@ -24,6 +32,7 @@ namespace Dispatching.Specifications.TestCases.Aaa
             const string endpointAddress = "http://api.aaa.com/api/eta";
 
             var response = _fixture.Create<Response>();
+            response.Eta = _estimatedTimeOfArrival;
             substitute
                 .PostAsync(Arg.Is(endpointAddress), Arg.Any<HttpContent>())
                 .Returns(response.ToHttpResponseMessage(_statusCode));
@@ -35,8 +44,5 @@ namespace Dispatching.Specifications.TestCases.Aaa
 
             public int TrafficIntensity { get; set; }
         }
-    }
-
-
-   
+    }   
 }
