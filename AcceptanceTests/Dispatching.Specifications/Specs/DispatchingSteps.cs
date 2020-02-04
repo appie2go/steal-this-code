@@ -50,6 +50,18 @@ namespace Dispatching.Specifications.Specs
             _contextBuilder.With(new Distance(_trainstationLocation, _cabLocation));
         }
 
+        [Given("traffic information")]
+        public void CreateTrafficInfromation()
+        {
+            var eta = _currentTime.AddMinutes(_fixture.Create<int>());
+
+            var testCase = new EstimatedTimeOfArrival()
+                .WithEstimatedTimeOrArrival(eta)
+                .AppendWith(new EstimatedDistance());
+
+            _contextBuilder.With(testCase);
+        }
+
         [Given("a cab")]
         public void CreateCab()
         {
@@ -68,18 +80,6 @@ namespace Dispatching.Specifications.Specs
             _command = _fixture.Create<DriveCustomerToTrainStation>();
             _command.CurrentLatitude = _customerLocation.Latitude;
             _command.CurrentLongitude = _customerLocation.Longitude;
-        }
-
-        [Given("traffic information")]
-        public void CreateTrafficInfromation()
-        {
-            var eta = _currentTime.AddMinutes(_fixture.Create<int>());
-
-            var testCase = new EstimatedTimeOfArrival()
-                .WithEstimatedTimeOrArrival(eta)
-                .AppendWith(new EstimatedDistance());
-
-            _contextBuilder.With(testCase);
         }
 
         [When("the customer has been driven to the trainstation")]
