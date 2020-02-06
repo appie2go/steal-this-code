@@ -6,8 +6,8 @@ This code-base is my interpretation of Command Query Responsibility Segregation,
 I've written what I've learned in the following blogs:
 
 * This blog briefly describes the concepts: [Implementing DDDomain models, ports & adapters and CQRS with C#](https://medium.com/@abstarreveld/implementing-dddomain-models-ports-adapters-and-cqrs-with-c-2b81403f09f7?source=friends_link&sk=5d712709ae5de5454bd84e88d62beb2c)
-* This blog describes the folder structure, project structure, etc, that's been applied in this repo. [DDDomain models, ports & adapters and CQRS reference architecture (C#)](https://medium.com/@abstarreveld/dddomain-models-ports-adapters-and-cqrs-reference-architecture-c-504817df65ec)
-* This blog describes the testing concepts [How to test a microservice](https://medium.com/@abstarreveld/how-to-test-a-microservice-4be1b5908f9)
+* This blog describes the folder structure, project structure, etc, that's been applied in this repo: [DDDomain models, ports & adapters and CQRS reference architecture (C#)](https://medium.com/@abstarreveld/dddomain-models-ports-adapters-and-cqrs-reference-architecture-c-504817df65ec)
+* This blog describes the testing concepts: [How to test a microservice](https://medium.com/@abstarreveld/how-to-test-a-microservice-4be1b5908f9).
 
 ## Feel free to use it. Don't abuse it!
 
