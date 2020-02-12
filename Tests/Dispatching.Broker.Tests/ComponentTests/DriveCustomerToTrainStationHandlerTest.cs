@@ -58,7 +58,7 @@ namespace Dispatching.Broker.Tests.ComponentTests
             // Assert
             await _bus
                 .Received(1)
-                .Publish(Arg.Any<DroveCustomerToTrainStation>());
+                .Send(Arg.Any<DroveCustomerToTrainStation>());
         }
     }
 }

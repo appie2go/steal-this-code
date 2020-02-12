@@ -13,7 +13,8 @@ namespace Dispatching.Aaa.Configuration
                 .AddTransient<IEstimatedTimeOfArrivalResponseMapper, EstimatedTimeOfArrivalResponseMapper>()
                 .AddTransient<IGetDistanceRequestMapper, GetDistanceRequestMapper>()
                 .AddTransient<IGetDistanceResponseMapper, GetDistanceResponseMapper>()
-                .AddTransient<IProvideTrafficInformation, AaaServiceProxy>();
+                .AddTransient<IProvideTrafficInformation, AaaServiceProxy>()
+                .AddTransient<IHttpClient, HttpClient>();
         }
     }
 }

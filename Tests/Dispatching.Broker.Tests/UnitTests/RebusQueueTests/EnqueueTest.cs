@@ -35,7 +35,7 @@ namespace Dispatching.Broker.Tests.UnitTests.RebusQueueTests
             // Assert
             await _bus
                 .Received(1)
-                .Publish(Arg.Is(payload));
+                .Send(Arg.Is(payload));
         }
     }
 }

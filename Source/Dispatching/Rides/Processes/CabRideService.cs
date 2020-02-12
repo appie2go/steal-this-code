@@ -14,7 +14,7 @@ namespace Dispatching.Rides.Processes
         private readonly IProvideTime _timeProvider;
         private readonly IProvideTrafficInformation _trafficInformationProvider;
 
-        internal CabRideService(IProvideLocation locationProvider,
+        public CabRideService(IProvideLocation locationProvider,
                                 IProvideCab cabProvider,
                                 IProvideTime timeProvider,
                                 IProvideTrafficInformation trafficInformationProvider)
