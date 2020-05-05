@@ -16,7 +16,7 @@ The concepts of value-types, aggregates, and entities are the same in every proj
 This NuGet package contains those base-classes:
 
 ```bash 
-Install-Package DomainDrivenDesign.DomainObjects -Version 0.0.8 
+Install-Package DomainDrivenDesign.DomainObjects
 ```
 
 Check out the source code of the project and read the documentation [here](https://github.com/appie2go/DomainObjects).
