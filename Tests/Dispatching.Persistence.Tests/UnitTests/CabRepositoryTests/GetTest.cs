@@ -1,7 +1,7 @@
 ﻿using AutoFixture;
 using Dispatching.Cabs;
-using Dispatching.Framework;
 using Dispatching.Persistence.Mappers;
+using DomainDrivenDesign.DomainObjects;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;

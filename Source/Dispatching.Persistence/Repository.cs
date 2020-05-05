@@ -1,5 +1,5 @@
-﻿using Dispatching.Framework;
-using Dispatching.Persistence.Mappers;
+﻿using Dispatching.Persistence.Mappers;
+using DomainDrivenDesign.DomainObjects;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

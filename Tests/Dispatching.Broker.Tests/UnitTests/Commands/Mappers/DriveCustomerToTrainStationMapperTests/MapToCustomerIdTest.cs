@@ -2,7 +2,7 @@
 using Dispatching.Broker.Commands;
 using Dispatching.Broker.Commands.Mappers;
 using Dispatching.Customers;
-using Dispatching.Framework;
+using DomainDrivenDesign.DomainObjects;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

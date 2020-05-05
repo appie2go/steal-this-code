@@ -1,7 +1,7 @@
 ﻿using AutoFixture;
 using Dispatching.Cabs;
 using Dispatching.Customers;
-using Dispatching.Framework;
+using DomainDrivenDesign.DomainObjects;
 using Dispatching.Rides;
 using Dispatching.Rides.Processes;
 using Dispatching.Rides.Processes.SecondaryPorts;

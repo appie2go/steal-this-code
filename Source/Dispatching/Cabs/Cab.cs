@@ -1,5 +1,5 @@
-﻿using Dispatching.Framework;
-using Dispatching.Customers;
+﻿using Dispatching.Customers;
+using DomainDrivenDesign.DomainObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;

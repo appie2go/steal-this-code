@@ -1,6 +1,6 @@
 ﻿using Dispatching.Cabs;
 using Dispatching.Customers;
-using Dispatching.Framework;
+using DomainDrivenDesign.DomainObjects;
 using System;
 
 namespace Dispatching.Rides

@@ -1,6 +1,6 @@
 ﻿using AutoFixture;
 using Dispatching.Customers;
-using Dispatching.Framework;
+using DomainDrivenDesign.DomainObjects;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

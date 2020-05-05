@@ -1,7 +1,7 @@
 ﻿using Dispatching.Customers;
-using Dispatching.Framework;
 using Dispatching.Rides.Processes.PrimaryPorts;
 using Dispatching.Rides.Processes.SecondaryPorts;
+using DomainDrivenDesign.DomainObjects;
 using System;
 using System.Threading.Tasks;
 
@@ -15,9 +15,9 @@ namespace Dispatching.Rides.Processes
         private readonly IProvideTrafficInformation _trafficInformationProvider;
 
         public CabRideService(IProvideLocation locationProvider,
-                                IProvideCab cabProvider,
-                                IProvideTime timeProvider,
-                                IProvideTrafficInformation trafficInformationProvider)
+                              IProvideCab cabProvider,
+                              IProvideTime timeProvider,
+                              IProvideTrafficInformation trafficInformationProvider)
         {
             _locationProvider = locationProvider ?? throw new ArgumentNullException(nameof(locationProvider));
             _cabProvider = cabProvider ?? throw new ArgumentNullException(nameof(cabProvider));

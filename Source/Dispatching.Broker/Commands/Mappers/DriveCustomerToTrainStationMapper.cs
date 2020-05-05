@@ -1,5 +1,5 @@
 ﻿using Dispatching.Customers;
-using Dispatching.Framework;
+using DomainDrivenDesign.DomainObjects;
 
 namespace Dispatching.Broker.Commands.Mappers
 {

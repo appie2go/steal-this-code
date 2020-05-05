@@ -1,4 +1,4 @@
-﻿using Dispatching.Framework;
+﻿using DomainDrivenDesign.DomainObjects;
 
 namespace Dispatching.Customers
 {

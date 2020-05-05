@@ -1,5 +1,5 @@
 ﻿using Dispatching.Cabs;
-using Dispatching.Framework;
+using DomainDrivenDesign.DomainObjects;
 
 namespace Dispatching.Persistence.Mappers.ToDomainModel
 {
