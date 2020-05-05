@@ -9,6 +9,19 @@ I've written what I've learned in the following blogs:
 * This blog describes the folder structure, project structure, etc, that's been applied in this repo: [DDDomain models, ports & adapters and CQRS reference architecture (C#)](https://medium.com/@abstarreveld/dddomain-models-ports-adapters-and-cqrs-reference-architecture-c-504817df65ec)
 * This blog describes the testing concepts: [How to test a microservice](https://medium.com/@abstarreveld/how-to-test-a-microservice-4be1b5908f9).
 
+## Don't re-invent things. 
+
+The concepts of value-types, aggregates, and entities are the same in every project. Don't waste your time writing the code for these types, yourself. Instead, use packages that provide the base-classes.
+
+This NuGet package contains those base-classes:
+
+```bash 
+Install-Package DomainDrivenDesign.DomainObjects -Version 0.0.8 
+```
+
+Check out the source code of the project and read the documentation [here](https://github.com/appie2go/DomainObjects).
+
+
 ## Feel free to use it. Don't abuse it!
 
 Feel free to copy the code and use it for your own application. Please share your experiences when you do.
