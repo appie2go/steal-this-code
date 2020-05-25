@@ -33,7 +33,7 @@ namespace Dispatching.Persistence.Tests.UnitTests.CabRepositoryTests
         {
             // Arrange
             var cab = _fixture.Create<PersistenceModel.Cab>();
-            var cabId = new Id<Cab>(cab.Id);
+            var cabId = Id<Cab>.Create(cab.Id);
             var dbContext = new DispatchingDbContextBuilder()
                 .WithCab(cab)
                 .Build();

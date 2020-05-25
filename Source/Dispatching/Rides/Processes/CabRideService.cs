@@ -34,7 +34,7 @@ namespace Dispatching.Rides.Processes
             cab.Embarc(customerId);
 
             // Bring the customer to the trainstation
-            var rideId = Id<Ride>.CreateNew();
+            var rideId = Id<Ride>.New();
             var destination = await _locationProvider.GetTrainStationLocation();
             var ride = new Ride(rideId, customerId, cab.Id);
             ride.SetDestination(destination);

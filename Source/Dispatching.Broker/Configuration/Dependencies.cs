@@ -1,6 +1,7 @@
 ﻿using Dispatching.Broker.Handlers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Rebus.ServiceProvider;
 
 namespace Dispatching.Broker.Configuration
 {
@@ -11,9 +12,10 @@ namespace Dispatching.Broker.Configuration
             return serviceCollection
                 .UseDispatchingBroker<ReBusConfiguration>();
         }
+
         public static IApplicationBuilder UseDispatchingBroker(this IApplicationBuilder applicationBuilder)
         {
-            applicationBuilder.UseRebus();
+            applicationBuilder.ApplicationServices.UseRebus();
             return applicationBuilder;
         }
 

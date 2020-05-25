@@ -25,7 +25,7 @@ namespace Dispatching.Broker.Tests.UnitTests.Commands.Mappers.DriveCustomerToTra
             var actual = sut.MapToCustomerId(input);
 
             // Assert
-            var expected = new Id<Customer>(input.CustomerId);
+            var expected = Id<Customer>.Create(input.CustomerId);
             actual.Should().Be(expected);
         }
     }

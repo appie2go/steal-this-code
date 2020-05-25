@@ -7,7 +7,7 @@ namespace Dispatching.Broker.Commands.Mappers
     {
         public Id<Customer> MapToCustomerId(DriveCustomerToTrainStation driveCustomerToTrainStation)
         {
-            return new Id<Customer>(driveCustomerToTrainStation.CustomerId);
+            return Id<Customer>.Create(driveCustomerToTrainStation.CustomerId);
         }
 
         public Location MapToCustomerLocation(DriveCustomerToTrainStation driveCustomerToTrainStation)

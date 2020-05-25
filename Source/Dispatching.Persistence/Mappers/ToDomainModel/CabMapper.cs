@@ -7,7 +7,7 @@ namespace Dispatching.Persistence.Mappers.ToDomainModel
     {
         public Cab Map(PersistenceModel.Cab input)
         {
-            var id = new Id<Cab>(input.Id);
+            var id = Id<Cab>.Create(input.Id);
             var location = new Location(input.Longitude, input.Latitude);
 
             return new Cab(id, location);
