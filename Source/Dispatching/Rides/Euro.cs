@@ -24,25 +24,11 @@ namespace Dispatching.Rides
 
 #region Equality
 
-        public static bool operator ==(Euro left, Euro right)
-        {
-            return left._amount == right._amount;
-        }
+        public static bool operator ==(Euro left, Euro right) => left.Equals(right);
 
-        public static bool operator !=(Euro left, Euro right)
-        {
-            return !(left == right);
-        }
+        public static bool operator !=(Euro left, Euro right) => !(left == right);
 
-        public bool Equals(Euro other)
-        {
-            return this == other;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return this == (Euro)obj;
-        }
+        public bool Equals(Euro other) => this.Equals((object)other);
 
         public override int GetHashCode()
         {

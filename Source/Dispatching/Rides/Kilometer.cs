@@ -22,34 +22,20 @@ namespace Dispatching.Rides
             _distance = distance;
         }
 
-        #region Equality
+#region Equality
 
-        public static bool operator ==(Kilometer left, Kilometer right)
-        {
-            return left._distance == right._distance;
-        }
+        public static bool operator ==(Kilometer left, Kilometer right) => left.Equals(right);
 
-        public static bool operator !=(Kilometer left, Kilometer right)
-        {
-            return !(left == right);
-        }
+        public static bool operator !=(Kilometer left, Kilometer right) => !(left == right);
 
-        public bool Equals(Kilometer other)
-        {
-            return this == other;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return this == (Kilometer)obj;
-        }
+        public bool Equals(Kilometer other) => this.Equals((object)other);
 
         public override int GetHashCode()
         {
             return _distance.GetHashCode() * 398;
         }
 
-        #endregion
+#endregion
 
         public static Kilometer operator + (Kilometer left, Kilometer right)
         {
