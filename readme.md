@@ -31,3 +31,7 @@ By cloning or forking this repository, by copying and using this code you are ag
 ## Don't like it? Make it better!
 
 I've written this code for anyone to use, to get inspiration and to learn new concepts. I learned a lot from other people's code, and this is my way of returning the favor. The day I'm not learning new things anymore is the day I quit. That means this code is not perfect. See anything conceptually incorrect? Please let me know. Please refer to the literature where these concepts are described. That way I can learn new things. Feel free to make a pull request, too!
+
+
+## Sponsor me
+[Buy me a coffee](https://www.buymeacoffee.com/appie2go)
